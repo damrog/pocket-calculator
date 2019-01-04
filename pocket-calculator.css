@@ -1,10 +1,26 @@
-html {
-    height: 100%;
+body{
+  background-color: blue
 }
-body {
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image: linear-gradient(blue,yellow,red);
+
+/*Row One*/
+.rowOne{
+  position: absolute;
+  top: 100px;
+  height:125px;
+  width:125px;
 }
+/*Row Two*/
+
+/*Row Three*/
+
+/*Row Four*/
+
+/*Row Five*/
+
+/*Column One*\
+
+/*Column Two*\
+
+/*Column Three*\
+
+/*Column Four*\
