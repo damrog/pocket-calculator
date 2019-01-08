@@ -1,26 +1,75 @@
 body{
-  background-color: blue
+  background-color: salmon
 }
-
+/*All Buttons*/
+.allButtons {
+  width: 120px;
+  height: 120px;
+  font-size: 25px;
+  color: black;
+  background-image: linear-gradient(#66ccff, teal);
+  border: 5px solid black;
+}
+.allButtons:hover{
+  background-image: none;
+  background-color: salmon;
+  color: salmon;
+  transition: 0.7s;
+}
 /*Row One*/
 .rowOne{
   position: absolute;
-  top: 100px;
-  height:125px;
-  width:125px;
+  top: 150px;
+
 }
 /*Row Two*/
+.rowTwo{
+  position: absolute;
+  top: 275px;
 
+}
 /*Row Three*/
+.rowThree{
+  position: absolute;
+  top: 400px;
 
+}
 /*Row Four*/
+.rowFour{
+  position: absolute;
+  top: 525px;
 
+}
 /*Row Five*/
+.rowFive {
+  position: absolute;
+  top: 650px;
 
-/*Column One*\
+}
+/*Column One*/
+.columnOne{
+  position: absolute;
+  left: 375px;
 
-/*Column Two*\
+}
+/*Column Two*/
+.columnTwo{
+  position: absolute;
+  left: 500px;
 
-/*Column Three*\
+}
+/*Column Three*/
+.columnThree{
+  position: absolute;
+  left: 625px;
 
-/*Column Four*\
+}
+/*Column Four*/
+.columnFour{
+  position: absolute;
+  left: 750px;
+
+}
+#buttonZero{
+  width:245px;
+}
