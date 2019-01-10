@@ -6,15 +6,16 @@ body{
   width: 120px;
   height: 120px;
   font-size: 25px;
-  color: black;
-  background-image: linear-gradient(#66ccff, teal);
-  border: 5px solid black;
+  color: darkgreen;
+  font-family: monospace;
+  background-image: linear-gradient(45deg, #b5ffd5, #b5fcf6);
+  border: 5px solid darkgreen;
 }
 .allButtons:hover{
   background-image: none;
-  background-color: salmon;
-  color: salmon;
-  transition: 0.7s;
+  background-image: linear-gradient(45deg, green, #5edb75);
+  color: black;
+  transition: 0.6s;
 }
 /*Row One*/
 .rowOne{
