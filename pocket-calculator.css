@@ -74,3 +74,11 @@ body{
 #buttonZero{
   width:245px;
 }
+input{
+  height: 75px;
+  width: 491px;
+  position: absolute;
+  top: 65px;
+  left: 375px;
+  background color: salmon;
+}
