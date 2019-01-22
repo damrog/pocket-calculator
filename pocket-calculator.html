@@ -19,17 +19,17 @@
     <button id = "buttonEight" class = "rowTwo columnTwo allButtons" onclick = "input(8)">8 </button>
     <button id = "buttonNine" class = "rowTwo columnThree allButtons" onclick = "input(9)">9 </button>
     <button id = "buttonZero" class ="rowFive columnOne allButtons" onclick = "input(0)">0 </button>
-    <button id = "buttonClear" class = "rowOne columnOne allButtons" onclick = "clear()">AC </button>
-    <button id = "buttonPlusMinus" class = "rowOne columnTwo allButtons" onclick = "plusminus()">+/- </button>
-    <button id = "buttonPercent" class = "rowOne columnThree allButtons" onclick = "percent()">% </button>
-    <button id = "buttonDivide" class = "rowOne columnFour allButtons" onclick = "divide()"> ÷ </button>
-    <button id = "buttonMultiply" class = "rowTwo columnFour allButtons" onclick = "multiply()">X </button>
-    <button id = "buttonMinus" class ="rowThree columnFour allButtons" onclick = "minus()">- </button>
-    <button id = "buttonPlus" class ="rowFour columnFour allButtons" onclick = "input('+')">+ </button>
+    <button id = "buttonClear" class = "rowOne columnOne allButtons" onclick = "clearCalc()">AC </button>
+    <button id = "buttonNegation" class = "rowOne columnTwo allButtons" onclick = numberNegation();">+/- </button>
+    <button id = "buttonPercent" class = "rowOne columnThree allButtons" onclick = "numberPercent();">% </button>
+    <button id = "buttonDivide" class = "rowOne columnFour allButtons" onclick = "input('/'); clearOnOp();"> ÷ </button>
+    <button id = "buttonMultiply" class = "rowTwo columnFour allButtons" onclick = "input('*'); clearOnOp();">X </button>
+    <button id = "buttonMinus" class ="rowThree columnFour allButtons" onclick = "input('-'); clearOnOp();">- </button>
+    <button id = "buttonPlus" class ="rowFour columnFour allButtons" onclick = "input('+'); clearOnOp();">+ </button>
     <button id = "buttonEqual" class ="rowFive columnFour allButtons" onclick = "equal()">= </button>
-    <button id = "buttonDecimal" class ="rowFive columnThree allButtons" onclick = "decimal()">. </button>
+    <button id = "buttonDecimal" class ="rowFive columnThree allButtons" onclick = "decimalInput('.')">. </button>
 
-    <div class="calcBackground">
+    <div class="calculator">
     <form name="calc">
     <input name="display" disabled>
   </form>
