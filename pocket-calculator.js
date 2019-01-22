@@ -7,6 +7,4 @@ function equal(){
   let equationEqual = document.calc.display.value
   document.calc.display.value = eval(equationEqual)
 
-function clearCalc(){
- document.calc.display.value = "";
-}
+
