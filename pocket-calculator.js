@@ -31,7 +31,7 @@ function insert(num){
   execution = true;
 }
 
-//replaces operators
+//this replaces the operators
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
   if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1] == '*' || expressionArray[expressionArray.length - 1] == '/'){
     expressionArray.pop();
