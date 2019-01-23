@@ -25,7 +25,7 @@ var negated = false;
 
   console.log("var status", finalSym, operationInserted, execution, decimalStatus, piStatus, decimalInserted);
 //logs false to the console after loading onto the page
-function insertNum(num){
+function insert(num){
   if(execution == false){
   document.calculator.display.value = "";
   execution = true;
