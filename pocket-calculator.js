@@ -110,7 +110,7 @@ function clearOnOperation(){
   document.getElementById("decimal").disabled = false;
 }
 
-function equal(){
+function equals(){
   symbolStatus = false;
   firstPercent = false;
   piStatus = false;
