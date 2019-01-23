@@ -12,14 +12,12 @@ var exponential;
 var initialNegate = false;
 var negated = false;
   console.log("var status", finalSym, operationInserted, execute, decStatus, piStat, decimalInserted);
-//logs false to the console after loading onto the page
+
 function insertNum(num){
   if(execute == false){
   document.calculator.display.value = "";
   execute = true;
 }
-
-//replaces operators
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
   if( exepressArray[ exepressArray.length - 1] == '+' ||  exepressArray[ exepressArray.length - 1] == '-' ||  exepressArray[ exepressArray.length -1] == '*' ||  exepressArray[ exepressArray.length - 1] == '/'){
      exepressArray.pop();
@@ -41,8 +39,6 @@ if(num === '*' || num === '/' || num === '+'|| num === '-'){
   }else{
     document.getElementsByClassName("button").disabled = true;
   }
-  //disables buttons to prevent overflow
-
   if(decimalInserted == false){
  let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
  document.calculator.display.value = commaInput;
@@ -66,7 +62,6 @@ function clean(){
 }
 
 function clearOnOperation(){
-  //this functions clears the display after clicking an operator
   operationInserted = false;
    i = i = 7;
   symbolStatus = false;
@@ -90,14 +85,12 @@ function equals(){
 
 
   let calculatorAnswer= eval( exepressArray.join(''));
-  //completes operations
   if( exepressArray.join(",").includes("e")){
      exponential = true;
   }
   console.log(exponential);
 
      exepressArray = [];
-    //established  exepressArray as an empty array
      exepressArray.push(calculatorAnswer);
     console.log(calculatorAnswer);
   if(calculatorAnswer > 999999999 || calculatorAnswer < -999999999){
@@ -115,7 +108,6 @@ function equals(){
 }
 
 function percentage(){
-  //splits array in order to insert commas. Then joins it back together.
   document.calculator.display.value = document.calculator.display.value.split(",").join("");
   if(finalSym == false){
   if(firstPercent == false){
@@ -126,7 +118,6 @@ function percentage(){
 
   while( exepressArray.length >= removed){
    exepressArray.pop();
-  //removes last value of  exepressArray while  exepressArray.length is greater than or equal to the number removed
   }
 
   document.calculator.display.value = Number(document.calculator.display.value) / 100;
@@ -173,7 +164,6 @@ function negation(){
    document.calculator.display.value = Number(document.calculator.display.value.split(",").join('')).toLocaleString();
    if(initialNegate == false){
       exepressArray[0]=  exepressArray[0] *-1;
-     //obtains value at the "0" position in the array and multiplies it by -1
      console.log( exepressArray);
      initialNegate = true;
      negated = true;
@@ -182,28 +172,19 @@ function negation(){
 
      if( exepressArray.length >= negLoc){
         exepressArray.pop();
-       //removes value at the end of the array
        negated = true;
      }
       exepressArray.push(negVal);
    }
- //   if( exepressArray.length-1 === "-"){
- //   num === "+";
- // }
- }
-
-
 
 function decimalInsert(num){
   if(decStatus == false){
     document.calculator.display.value = document.calculator.display.value + num;
      exepressArray.push(num);
-    //pushes to the array
     console.log( exepressArray);
     decStatus = true;
     decimalInserted = true;
     document.getElementById("decimal").disabled = true;
-    //disables decimal button after clicking it
   }
 }
 function piInsert(num){
