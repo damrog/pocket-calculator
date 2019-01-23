@@ -4,11 +4,11 @@ var execution = false;
 var expressionArray= [];
 var decimalStatus = false;
 var piStatus = false;
-var decimalInputteded = false;
+var decimalInputted = false;
 var firstPercent = false;
 var symbolStatus = false;
 var i = 7;
-var operationInputteded = false;
+var operationInputted = false;
 var finalSym = false;
 var exponential;
 var firstNegate = false;
@@ -23,7 +23,7 @@ var negated = false;
  // document.calc.display.value = eval(equationEqual)
 //} 
 
-  console.log("var status", finalSym, operationInputteded, execution, decimalStatus, piStatus, decimalInputted);
+  console.log("var status", finalSym, operationInputted, execution, decimalStatus, piStatus, decimalInputted);
 //logs false to the console after loading onto the page
 function input(num){
   if(execution == false){
@@ -56,7 +56,7 @@ if(num === '*' || num === '/' || num === '+'|| num === '-'){
   }
   //disables buttons to prevent overflow
 
-  if(decimalInserted == false){
+  if(decimalInputted == false){
  let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
  document.calculator.display.value = commaInput;
   }
