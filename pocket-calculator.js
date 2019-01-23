@@ -48,7 +48,7 @@ if(num === '+'|| num === '-' || num === '*' || num === '/'){
     document.getElementById("button8").disabled = true;
     document.getElementById("button9").disabled = true;
     document.getElementById("decimal").disabled = true;
-    document.getElementById("pi_Button").disabled = true;
+    document.getElementById("buttonPi").disabled = true;
   }
 
   if(decimalInserted == false){
@@ -80,7 +80,7 @@ function clean(){
     document.getElementById("button7").disabled = false;
     document.getElementById("button8").disabled = false;
     document.getElementById("button9").disabled = false;
-    document.getElementById("pi_Button").disabled = false;
+    document.getElementById("buttonPi").disabled = false;
     document.getElementById("decimal").disabled = false;
 }
 
@@ -106,7 +106,7 @@ function clearOnOperation(){
   document.getElementById("button7").disabled = false;
   document.getElementById("button8").disabled = false;
   document.getElementById("button9").disabled = false;
- document.getElementById("pi_Button").disabled = false;
+ document.getElementById("buttonPi").disabled = false;
   document.getElementById("decimal").disabled = false;
 }
 
@@ -127,7 +127,7 @@ function equals(){
   document.getElementById("button7").disabled = true;
   document.getElementById("button8").disabled = true;
   document.getElementById("button9").disabled = true;
-  document.getElementById("pi_Button").disabled = true;
+  document.getElementById("buttonPi").disabled = true;
 
   let calculatorAnswer= eval(expressionArray.join(''));
   if(expressionArray.join(",").includes("e")){
@@ -179,7 +179,6 @@ function percentage(){
   document.calculator.display.value = document.calculator.display.value/100;
   expressionArray.push(document.calculator.display.value);
   console.log(expressionArray);
-  //logs expressionArray to the console
   console.log(document.calculator.display.value);
   if(document.calculator.display.value>= 0.9999999){
     let power= Number(document.calculator.display.value);
