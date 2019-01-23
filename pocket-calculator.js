@@ -4,11 +4,11 @@ var execution = false;
 var expressionArray= [];
 var decimalStatus = false;
 var piStatus = false;
-var decimalInserted = false;
+var decimalInputteded = false;
 var firstPercent = false;
 var symbolStatus = false;
 var i = 7;
-var operationInserted = false;
+var operationInputteded = false;
 var finalSym = false;
 var exponential;
 var firstNegate = false;
@@ -23,9 +23,9 @@ var negated = false;
  // document.calc.display.value = eval(equationEqual)
 //} 
 
-  console.log("var status", finalSym, operationInserted, execution, decimalStatus, piStatus, decimalInserted);
+  console.log("var status", finalSym, operationInputteded, execution, decimalStatus, piStatus, decimalInputted);
 //logs false to the console after loading onto the page
-function insert(num){
+function input(num){
   if(execution == false){
   document.calculator.display.value = "";
   execution = true;
@@ -36,13 +36,14 @@ if(num === '*' || num === '/' || num === '+'|| num === '-'){
   if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1] == '*' || expressionArray[expressionArray.length - 1] == '/'){
     expressionArray.pop();
     expressionArray.push(num);
-    operationInserted = true;
+    operationInputted = true;
     console.log("raw array", expressionArray);
   }
 }
 
 
-  if(operationInserted == false){
+  if(operationInput
+     ted == false){
     document.calculator.display.value = document.calculator.display.value + num;
     expressionArray.push(num);
       console.log("joined array", expressionArray.join(''));
@@ -63,15 +64,15 @@ if(num === '*' || num === '/' || num === '+'|| num === '-'){
 
 function clean(){
   finalSym = false;
-  operationInserted = false;
+  operationInputted = false;
   document.calculator.display.value=0;
    i = i = 7;
   execution = false;
   decimalStatus = false;
   piStatus = false;
-  decimalInserted = false;
+  decimalInputted = false;
   firstNegate = false;
-  console.log(finalSym, operationInserted, execution, decimalStatus, piStatus, decimalInserted);
+  console.log(finalSym, operationInputted, execution, decimalStatus, piStatus, decimalInputted);
     expressionArray = [];
     document.getElementsByClassName("button").disabled = false;
 
@@ -79,7 +80,7 @@ function clean(){
 
 function clearOnOperation(){
   //this functions clears the display after clicking an operator
-  operationInserted = false;
+  operationInputted = false;
    i = i = 7;
   symbolStatus = false;
   firstPercent = false;
@@ -87,7 +88,7 @@ function clearOnOperation(){
   execution = false;
   decimalStatus = false;
   piStatus = false;
-  decimalInserted = false;
+  decimalInputted = false;
   firstNegate = true;
     document.getElementsByClassName("button").disabled = false;
 
@@ -206,19 +207,19 @@ function negation(){
 
 
 
-function decimalInsert(num){
+function decimalInput(num){
   if(decimalStatus == false){
     document.calculator.display.value = document.calculator.display.value + num;
     expressionArray.push(num);
     //pushes to the array
     console.log(expressionArray);
     decimalStatus = true;
-    decimalInserted = true;
+    decimalInputted = true;
     document.getElementById("decimal").disabled = true;
     //disables decimal button after clicking it
   }
 }
-function piInsert(num){
+function piInput(num){
   if(piStatus == false){
     document.calculator.display.value = '';
     document.calculator.display.value = document.calculator.display.value + num;
