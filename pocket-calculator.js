@@ -70,7 +70,7 @@ function clean(){
   console.log(finalSym, operationInserted, execution, decimalStatus, piStatus, decimalInserted);
     expressionArray = [];
 
-    document.getElementById("zero_button").disabled = false;
+    document.getElementById("buttonZero").disabled = false;
     document.getElementById("button1").disabled = false;
     document.getElementById("button2").disabled = false;
     document.getElementById("button3").disabled = false;
@@ -96,7 +96,7 @@ function clearOnOperation(){
   decimalInserted = false;
   firstNegate = true;
 
-  document.getElementById("zero_button").disabled = false;
+  document.getElementById("buttonZero").disabled = false;
   document.getElementById("button1").disabled = false;
   document.getElementById("button2").disabled = false;
   document.getElementById("button3").disabled = false;
