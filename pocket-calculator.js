@@ -1,234 +1,217 @@
-//Make Pi 9 digits long//
-//define variables here//
-
 var execute = false;
-var expressionArray= [];
-var decimalInsert = false;
-var decimalNumberInsert = false;
+var exepressArray= [];
+var decStatus = false;
+var piStat = false;
+var decimalInserted = false;
 var firstPercent = false;
 var symbolStatus = false;
 var i = 7;
-var signinserted = false;
-var afterEqualLastSym = false;
-var exponentialAlert;
-var firstNegationStatus = false;
-var negation = false;
-
-
-//do functions here//
-function display(num){
+var operationInserted = false;
+var finalSym = false;
+var exponential;
+var initialNegate = false;
+var negated = false;
+  console.log("var status", finalSym, operationInserted, execute, decStatus, piStat, decimalInserted);
+//logs false to the console after loading onto the page
+function insertNum(num){
   if(execute == false){
-  document.calc.display.value=""
+  document.calculator.display.value = "";
   execute = true;
 }
 
+//replaces operators
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
-  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1 == '*'] || expressionArray[expressionArray.length - 1] == '/'){
-    expressionArray.pop();
-    expressionArray.push(num);
-    signinserted = true;
+  if( exepressArray[ exepressArray.length - 1] == '+' ||  exepressArray[ exepressArray.length - 1] == '-' ||  exepressArray[ exepressArray.length -1] == '*' ||  exepressArray[ exepressArray.length - 1] == '/'){
+     exepressArray.pop();
+     exepressArray.push(num);
+    operationInserted = true;
+    console.log("raw array",  exepressArray);
   }
-
 }
 
-  if(signinserted == false){
-    document.calc.display.value = document.calc.display.value + num;
-    expressionArray.push(num)
 
+  if(operationInserted == false){
+    document.calculator.display.value = document.calculator.display.value + num;
+     exepressArray.push(num);
+      console.log("joined array",  exepressArray.join(''));
   }
 
-  if(Number(document.calc.display.value.length) <= 10){
-    document.calc.display.value = document.calc.display.value
+  if(Number(document.calculator.display.value.length) <= 10){
+    document.calculator.display.value = document.calculator.display.value;
   }else{
-    document.getElementById("zero").disabled = true;
-    document.getElementById("button1").disabled = true;
-    document.getElementById("button2").disabled = true;
-    document.getElementById("button3").disabled = true;
-    document.getElementById("button4").disabled = true;
-    document.getElementById("button5").disabled = true;
-    document.getElementById("button6").disabled = true;
-    document.getElementById("button7").disabled = true;
-    document.getElementById("button8").disabled = true;
-    document.getElementById("button9").disabled = true;
-    document.getElementById("decimalButton").disabled = true;
+    document.getElementsByClassName("button").disabled = true;
   }
+  //disables buttons to prevent overflow
 
-  if(decimalNumberInsert == false){
- let commaInput = Number(document.calc.display.value.split(",").join("")).toLocaleString();
- document.calc.display.value = commaInput;
+  if(decimalInserted == false){
+ let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
+ document.calculator.display.value = commaInput;
   }
 }
 
-function clearOperator(){
-  signinserted = false
-   i = i = 7;
-  symbolStatus = false
-  firstPercent = false;
-  document.calc.display.value= 0
-  execute = false;
-  decimalInsert = false;
-  decimalNumberInsert = false;
-  firstNegationStatus = true;
-
-  document.getElementById("zero").disabled = false;
-  document.getElementById("button1").disabled = false;
-  document.getElementById("button2").disabled = false;
-  document.getElementById("button3").disabled = false;
-  document.getElementById("button4").disabled = false;
-  document.getElementById("button5").disabled = false;
-  document.getElementById("button6").disabled = false;
-  document.getElementById("button7").disabled = false;
-  document.getElementById("button8").disabled = false;
-  document.getElementById("button9").disabled = false;
-  document.getElementById("decimalButton").disabled = false;
-}
-function equal(){
-  negation = false;
-  symbolStatus = false
-  firstPercent = false;
-  afterEqualLastSym = true;
-
-
-  document.getElementById("decimalButton").disabled = true;
-  document.getElementById("zero").disabled = true;
-  document.getElementById("button1").disabled = true;
-  document.getElementById("button2").disabled = true;
-  document.getElementById("button3").disabled = true;
-  document.getElementById("button4").disabled = true;
-  document.getElementById("button5").disabled = true;
-  document.getElementById("button6").disabled = true;
-  document.getElementById("button7").disabled = true;
-  document.getElementById("button8").disabled = true;
-  document.getElementById("button9").disabled = true;
-
-  let caclEvaluated= eval(expressionArray.join(''));
-  if(expressionArray.join(",").includes("e")){
-     exponentialAlert = true;
-  }
-
-    expressionArray = [];
-    expressionArray.push(caclEvaluated)
-  if(caclEvaluated > 999999999 || caclEvaluated < -999999999){
-    document.calc.display.value = caclEvaluated.toExponential(9)
-  }else{
-    document.calc.display.value=caclEvaluated.toLocaleString("en")
-  }
-  if(exponentialAlert == true){
-    document.calc.display.value = caclEvaluated
-  }
-
-  if(document.calc.display.value === "Infinity" || document.calc.display.value === "∞" || document.calc.display.value === "NaN") {
-    document.calc.display.value = "Error";
-  }
-}
-
-function clearCalc(){
-  afterEqualLastSym = false;
-  signinserted = false
-  document.calc.display.value=0;
+function clean(){
+  finalSym = false;
+  operationInserted = false;
+  document.calculator.display.value=0;
    i = i = 7;
   execute = false;
-  decimalInsertion = false;
-  decimalNumberInsert = false;
-  firstNegationStatus = false
-    expressionArray = [];
+  decStatus = false;
+  piStat = false;
+  decimalInserted = false;
+  initialNegate = false;
+  console.log(finalSym, operationInserted, execute, decStatus, piStat, decimalInserted);
+     exepressArray = [];
+    document.getElementsByClassName("button").disabled = false;
 
-    document.getElementById("zero").disabled = false;
-    document.getElementById("button1").disabled = false;
-    document.getElementById("button2").disabled = false;
-    document.getElementById("button3").disabled = false;
-    document.getElementById("button4").disabled = false;
-    document.getElementById("button5").disabled = false;
-    document.getElementById("button6").disabled = false;
-    document.getElementById("button7").disabled = false;
-    document.getElementById("button8").disabled = false;
-    document.getElementById("button9").disabled = false;
-    document.getElementById("decimalButton").disabled = false;
 }
 
-function numberNegation(){
-  document.calc.display.value = document.calc.display.value.split(",").join('')
-  let numsCountNeg = document.calc.display.value.length
+function clearOnOperation(){
+  //this functions clears the display after clicking an operator
+  operationInserted = false;
+   i = i = 7;
+  symbolStatus = false;
+  firstPercent = false;
+  document.calculator.display.value= 0;
+  execute = false;
+  decStatus = false;
+  piStat = false;
+  decimalInserted = false;
+  initialNegate = true;
+    document.getElementsByClassName("button").disabled = false;
 
-  document.calc.display.value = document.calc.display.value * -1
+}
 
-  let negValue = document.calc.display.value
-  document.calc.display.value = Number(document.calc.display.value.split(",").join('')).toLocaleString();
+function equals(){
+  symbolStatus = false;
+  firstPercent = false;
+  piStat = false;
+  finalSym = true;
+    document.getElementsByClassName("button").disabled = true;
 
-  if(firstNegationStatus == false){
-    expressionArray[expressionArray.length - expressionArray.length ]= expressionArray[expressionArray.length - expressionArray.length] *-1
-    firstNegationStatus = true;
-    negation = true;
+
+  let calculatorAnswer= eval( exepressArray.join(''));
+  //completes operations
+  if( exepressArray.join(",").includes("e")){
+     exponential = true;
   }
-  else {
-    let whereToNegate = expressionArray.length - numsCountNeg
-    if(expressionArray.length >= whereToNegate){
-      expressionArray.pop();
-      negation = true;
-    }
+  console.log(exponential);
 
-    expressionArray.push(negValue)
+     exepressArray = [];
+    //established  exepressArray as an empty array
+     exepressArray.push(calculatorAnswer);
+    console.log(calculatorAnswer);
+  if(calculatorAnswer > 999999999 || calculatorAnswer < -999999999){
+    document.calculator.display.value = calculatorAnswer.toExponential(9);
+  }else{
+    document.calculator.display.value=calculatorAnswer.toLocaleString("en");
+  }
+  if(exponential == true){
+    document.calculator.display.value = calculatorAnswer;
+  }
+
+  if(document.calculator.display.value === "Infinity" || document.calculator.display.value === "NaN" || document.calculator.display.value === "∞") {
+    document.calculator.display.value = "ERROR";
   }
 }
 
-function displayDecimal(num){
-  if(decimalInsert == false){
-    document.calc.display.value = document.calc.display.value + num
-    expressionArray.push(num)
-    decimalInsert = true;
-    decimalNumberInsert = true;
-    document.getElementById("decimalButton").disabled = true;
-  }
-}
-
-function numberPercentage(){
-  document.calc.display.value = document.calc.display.value.split(",").join("")
-if(afterEqualLastSym == false){
+function percentage(){
+  //splits array in order to insert commas. Then joins it back together.
+  document.calculator.display.value = document.calculator.display.value.split(",").join("");
+  if(finalSym == false){
   if(firstPercent == false){
-    let numsCount = document.calc.display.value.length
-    numsCount = numsCount -1
+  let numberCount = document.calculator.display.value.length;
+  numberCount = numberCount -1;
+  console.log(numberCount);
+  let removed =  exepressArray.length - numberCount;
 
-  let amountToBeRemoved = expressionArray.length - numsCount
-  while(expressionArray.length >= amountToBeRemoved){
-    expressionArray.pop();
+  while( exepressArray.length >= removed){
+   exepressArray.pop();
+  //removes last value of  exepressArray while  exepressArray.length is greater than or equal to the number removed
   }
-  document.calc.display.value = Number(document.calc.display.value) / 100
-expressionArray[amountToBeRemoved] = document.calc.display.value
+
+  document.calculator.display.value = Number(document.calculator.display.value) / 100;
+   exepressArray[removed] = document.calculator.display.value;
+  console.log( exepressArray);
   firstPercent = true;
-}
-else{
- let numsCount2 = document.calc.display.value.length
- numsCount2 = numsCount2 - i
-  let amountToBeRemoved2 = expressionArray.length - numsCount2
-expressionArray.splice(expressionArray.length -1)
-  document.calc.display.value = document.calc.display.value / 100
-  expressionArray.push(document.calc.display.value)
-  if(document.calc.display.value>= 0.9999999){
-    let expon= Number(document.calc.display.value)
-    document.calc.display.value = expon.toExponential(9)
+
+}else{
+  let numC2 = document.calculator.display.value.length;
+  numC2 = numC2 - i;
+  console.log(numC2);
+  let removed2 =  exepressArray.length - numC2;
+   exepressArray.splice( exepressArray.length -1);
+  document.calculator.display.value = document.calculator.display.value/100;
+   exepressArray.push(document.calculator.display.value);
+  console.log( exepressArray);
+  //logs  exepressArray to the console
+  console.log(document.calculator.display.value);
+  if(document.calculator.display.value>= 0.9999999){
+    let power= Number(document.calculator.display.value);
+    console.log(typeof power);
+    document.calculator.display.value = power.toExponential(9);
+    //uses scientific notation after 9 digits
   }
-  i = i+2;
+  console.log("percentaged array",  exepressArray);
 }
 }else{
-  document.calc.display.value = document.calc.display.value / 100
-  expressionArray = []
-  expressionArray.push(document.calc.display.value)
-  let expon= Number(document.calc.display.value)
-  if(document.calc.display.value>= 0.9999999){
-  document.calc.display.value = expon.toExponential(9)
+  document.calculator.display.value = document.calculator.display.value/100;
+   exepressArray = [];
+   exepressArray.push(document.calculator.display.value);
+  let power= Number(document.calculator.display.value);
+  console.log(typeof power);
+  if(document.calculator.display.value >= 0.9999999){
+  document.calculator.display.value = power.toExponential(9);
     }
   }
 }
 
+function negation(){
+  document.calculator.display.value = document.calculator.display.value.split(",").join('');
+   let negNums = document.calculator.display.value.length;
+   document.calculator.display.value = document.calculator.display.value * -1;
+   let negVal = document.calculator.display.value;
+   document.calculator.display.value = Number(document.calculator.display.value.split(",").join('')).toLocaleString();
+   if(initialNegate == false){
+      exepressArray[0]=  exepressArray[0] *-1;
+     //obtains value at the "0" position in the array and multiplies it by -1
+     console.log( exepressArray);
+     initialNegate = true;
+     negated = true;
+   }else {
+     let negLoc =  exepressArray.length - negNums;
 
-  
-   //function input(num) {
-//  document.calc.display.value = document.calc.display.value + num;
-//}
+     if( exepressArray.length >= negLoc){
+        exepressArray.pop();
+       //removes value at the end of the array
+       negated = true;
+     }
+      exepressArray.push(negVal);
+   }
+ //   if( exepressArray.length-1 === "-"){
+ //   num === "+";
+ // }
+ }
 
-//function equal(){
-//  let equationEqual = document.calc.display.value
- // document.calc.display.value = eval(equationEqual)
-//} 
-  
 
+
+function decimalInsert(num){
+  if(decStatus == false){
+    document.calculator.display.value = document.calculator.display.value + num;
+     exepressArray.push(num);
+    //pushes to the array
+    console.log( exepressArray);
+    decStatus = true;
+    decimalInserted = true;
+    document.getElementById("decimal").disabled = true;
+    //disables decimal button after clicking it
+  }
+}
+function piInsert(num){
+  if(piStat == false){
+    document.calculator.display.value = '';
+    document.calculator.display.value = document.calculator.display.value + num;
+     exepressArray.push(num);
+    console.log( exepressArray);
+    piStat = true;
+  }
+}
